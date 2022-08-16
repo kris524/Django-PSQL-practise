@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>This is the myapp BASE page</h1>
+<h1>This is the films MAIN page</h1>
 <br>
-<h4>Some Pixar Movies:</h4>
+<h4>Films saved in our database:</h4>
 <ul>
-  {% for number in '012'|make_list %}
-    <li>Toy Story {{forloop.counter}}</li>
-  {% endfor %}
+    {% for car in cars_list %}
+
+    <li>Model: {{car.model}}, Number: {{car.number}}, Owner: "{{car.owner}}"</li>
+    {% endfor %}
 </ul>
-{% endblock  %}
+{% endblock %}

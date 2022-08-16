@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Car
 # Create your views here.
 
 from django.http import HttpResponse
@@ -11,7 +11,9 @@ def home(request):
 
 def base(request):
     title  = "THE BASE PAGE"
-    return render(request, "myapp/main.html", {'title': title})
+    cars_list = Car.objects.all()
+
+    return render(request, "myapp/main.html", {'title': title, "cars_list": cars_list })
 
 def user_info(request):
     userinfo = {"username": "Geralt", "country": "Kaera Mohren"}
