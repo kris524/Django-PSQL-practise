@@ -10,10 +10,17 @@ def home(request):
 
 
 def base(request):
-    return render(request, "myapp/main.html")
+    title  = "THE BASE PAGE"
+    return render(request, "myapp/main.html", {'title': title})
 
 def user_info(request):
-    return render(request, "myapp/user_info.html")
+    userinfo = {"username": "Geralt", "country": "Kaera Mohren"}
+
+    context = {"userinfo": userinfo, "title": "User Info Page"}
+    context_no_title = {"userinfo": userinfo}
+    # return render(request, "myapp/user_info.html", context)
+
+    return render(request, "myapp/user_info.html", context_no_title)
 
 
 
