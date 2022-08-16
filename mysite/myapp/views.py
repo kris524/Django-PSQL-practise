@@ -5,19 +5,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    print("Request object:", request)
-    print("Request object type:", type(request))
+    return render(request, 'home.html') 
+    
 
-    html_tags = """
-    <h1>This is the Home Page</h1>
-    <h3>Thanks for visiting</h3>
-    <p>MVT means:</p>
-    <ul>
-        <li>Model</li>
-        <li>View</li>
-        <li>Template</li>
-    </ul>"""
-    response = HttpResponse(html_tags)
 
-    return response
+def base(request):
+    return render(request, "myapp/main.html")
+
+def user_info(request):
+    return render(request, "myapp/user_info.html")
+
+
 
