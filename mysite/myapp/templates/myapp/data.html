@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Car details:</h1>
+<br>
+<table class="table" style="width: 30%">
+    <thead>
+        <tr>
+            <th scope="col">Attribute</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">Model:</td>
+            <td class="text-dark">{{car.model}}</td>
+        </tr>
+        <tr>
+            <td scope="row">Number:</td>
+            <td>{{car.number}}</td>
+        </tr>
+        <tr>
+            <td>Owner:</td>
+            <td>{{car.owner}}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

@@ -36,28 +36,9 @@ def user_info(request):
                     'title': 'User Info Page'}
         template = 'myapp/user_info.html'
         return render(request, template, context)
-
-
-        # userinfo = {'username': request.GET.get('username'), #?username=Josh&country=USA
-        #         'country': request.GET.get('country'),
-        #        }
-        # context = {'userinfo': userinfo}
-
-        # template = 'myapp/user_info.html'
-
-        # return render(request, template, context)
     
     elif request.method == "POST":
         return HttpResponse('POST request here')
-
-    # userinfo = {"username": "Geralt", "country": "Kaera Mohren"}
-
-    # context = {"userinfo": userinfo, "title": "User Info Page"}
-    # context_no_title = {"userinfo": userinfo}
-    # return render(request, "myapp/user_info.html", context)
-
-    # return render(request, "myapp/user_info.html", context_no_title)
-
 
 def just_form(request):
     if request.method == "GET":
@@ -74,3 +55,8 @@ def just_form(request):
 
         return redirect(reverse('myapp:user_info'))
 
+
+def data(request, id):
+    car = Car.objects.get(id=id)
+    context = {'car': car}
+    return render(request, 'myapp/data.html', context)
